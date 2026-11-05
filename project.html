@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Case study · Rodrigo Disselli</title>
+  <meta name="theme-color" content="#0B0B0B">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-project">
+  <div class="wipe" aria-hidden="true"><span class="wipe__panel wipe__panel--accent"></span><span class="wipe__panel"></span></div>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+  <header class="nav">
+    <a class="nav__logo" href="index.html" aria-label="Rodrigo Disselli, home">RODRIGO<span>DISSELLI</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="link" href="index.html#work">Work</a>
+      <a class="link" href="index.html#about">About</a>
+      <a class="link" href="index.html#process">Process</a>
+      <a class="link" href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang" role="group" aria-label="Language" data-active="en">
+        <button class="lang__btn" data-lang="en" aria-pressed="true" lang="en" aria-label="Switch to English">EN</button>
+        <button class="lang__btn" data-lang="pt" aria-pressed="false" lang="pt-BR" aria-label="Switch to Portuguese">PT</button>
+      </div>
+      <a class="nav__cv" href="Rodrigo%20Disselli%20de%20Almeida%20CV.pdf" download="Rodrigo Disselli de Almeida CV.pdf" aria-label="Download CV"><span class="nav__cv-long">Download</span> CV <span class="nav__cv-ico" aria-hidden="true">↓</span></a>
+      <div class="nav__cta">
+        <button class="nav__talk" aria-expanded="false" aria-controls="contactPop" aria-label="Let’s talk" data-ripple><span class="nav__talk-txt">Let’s talk</span><span class="nav__talk-ico" aria-hidden="true">✉</span><span class="nav__talk-dot" aria-hidden="true"></span></button>
+        <div class="contact-pop" id="contactPop" role="dialog" aria-label="Contact options">
+          <a class="cp__item" href="https://www.linkedin.com/" data-linkedin target="_blank" rel="noopener"><span class="cp__ico" aria-hidden="true">in</span><span class="cp__txt"><strong>LinkedIn</strong><small>Connect with me</small></span><span class="cp__arr" aria-hidden="true">↗</span></a>
+          <a class="cp__item" href="mailto:disselli.rodrigoalmeida@gmail.com" data-email-link><span class="cp__ico" aria-hidden="true">@</span><span class="cp__txt"><strong>Send an email</strong><small>Opens your mail app</small></span><span class="cp__arr" aria-hidden="true">↗</span></a>
+          <button class="cp__item" data-copy-email aria-label="Copy email address disselli.rodrigoalmeida@gmail.com"><span class="cp__ico" aria-hidden="true">⧉</span><span class="cp__txt"><strong>disselli.rodrigoalmeida@gmail.com</strong><small data-copy-label data-done="Copied to clipboard ✓">Click to copy</small></span><span class="cp__arr cp__check" aria-hidden="true">✓</span></button>
+        </div>
+      </div>
+    </div>
+    <button class="nav__burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <nav class="menu__links" aria-label="Mobile">
+      <a href="index.html#work" style="--i:0"><small>01</small>Work</a>
+      <a href="index.html#about" style="--i:1"><small>02</small>About</a>
+      <a href="index.html#process" style="--i:2"><small>03</small>Process</a>
+      <a href="index.html#contact" style="--i:3"><small>04</small>Contact</a>
+    </nav>
+    <div class="menu__foot">
+      <a href="https://www.linkedin.com/" data-linkedin target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:disselli.rodrigoalmeida@gmail.com" data-email-link>Send email ↗</a>
+      <button data-copy-email aria-label="Copy email address disselli.rodrigoalmeida@gmail.com"><span data-copy-label data-done="Copied ✓">Copy email</span></button>
+    </div>
+  </div>
+
+  <main id="article"></main>
+
+  <dialog class="modal" id="protoModal" aria-label="Prototype preview">
+    <div class="modal__bar">
+      <span class="mono">Prototype preview</span>
+      <div class="modal__actions">
+        <a class="modal__ext link" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+        <button class="modal__close" aria-label="Close preview">✕</button>
+      </div>
+    </div>
+    <div class="modal__stage"></div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__logo">RODRIGO DISSELLI<span class="dot"></span></p>
+        <p class="footer__muted">UX/UI & Product Designer using AI to craft clear products for complex problems.</p>
+      </div>
+      <div><p class="footer__h mono">Navigation</p><a class="link" href="index.html#work">Work</a><a class="link" href="index.html#about">About</a><a class="link" href="index.html#process">Process</a><a class="link" href="index.html#contact">Contact</a></div>
+      <div><p class="footer__h mono">Connect</p><a class="link" href="https://www.linkedin.com/" data-linkedin target="_blank" rel="noopener">LinkedIn ↗</a><a class="link" href="mailto:disselli.rodrigoalmeida@gmail.com" data-email-link>Send email ↗</a></div>
+      <div><p class="footer__h mono">Contact</p><button class="link footer__copy-email" data-copy-email aria-label="Copy email address disselli.rodrigoalmeida@gmail.com"><span data-copy-label data-done="Copied ✓">disselli.rodrigoalmeida@gmail.com</span> ⧉</button><button class="footer__top link" data-top>Back to top ↑</button></div>
+    </div>
+    <div class="footer__word" aria-hidden="true" data-fit="1"><span class="fit-inner">UX/UI</span></div>
+    <p class="footer__copy mono">© <span data-year>2026</span> Rodrigo Disselli. All rights reserved.</p>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/project.js"></script>
+</body>
+</html>
