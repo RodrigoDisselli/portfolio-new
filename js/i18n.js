@@ -149,6 +149,10 @@
     
 
     /* ---------- Contact ---------- */
+    'Let’s work together': 'Vamos trabalhar juntos',
+    'Have a project, a role or a question? Email is the fastest way to reach me.': 'Tem um projeto, uma vaga ou uma pergunta? E-mail é o jeito mais rápido de falar comigo.',
+    'Write me': 'Escreva',
+    'Find me on LinkedIn': 'Me encontre no LinkedIn',
     'Let’s create something': 'Vamos criar algo',
     'extraordinary.': 'extraordinário.',
     'Have a project in mind or just want to say hello? I’d love to hear from you.': 'Tem um projeto em mente ou só quer dizer olá? Vou adorar falar com você.',

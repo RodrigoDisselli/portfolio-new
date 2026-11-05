@@ -440,7 +440,7 @@
 
   const tick = () => {
     if (cur && fine) {
-      cx += (mx - cx) * 0.2; cy += (my - cy) * 0.2;
+      cx += (mx - cx) * 0.45; cy += (my - cy) * 0.45;
       cur.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
     }
     if (hero && !reduce) {
