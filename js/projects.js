@@ -17,11 +17,6 @@
 
 window.PROJECT_FILES = [
   { slug: 'project-01' },
-  { slug: 'project-02' },
-  { slug: 'project-03' },
-  { slug: 'project-04' },
-  { slug: 'project-05' },
-  { slug: 'project-06' }
 ];
 
 (() => {
@@ -42,6 +37,7 @@ window.PROJECT_FILES = [
   /* ---------- Front matter (simple YAML: key: value, and "- Label: Value" lists) ---------- */
   const unquote = s => s.trim().replace(/^(['"])(.*)\1$/, '$2');
   const frontMatter = src => {
+    src = src.replace(/\r\n?/g, '\n');
     const m = src.match(/^﻿?---[ \t]*\n([\s\S]*?)\n---[ \t]*(\n|$)/);
     if (!m) return { data: {}, body: src };
     const data = {};
