@@ -237,8 +237,8 @@ window.PROJECT_FILES = [
     if (!cache.has(key)) {
       cache.set(key, (async () => {
         let src = null;
-        if (lang === 'pt') src = await fetchText(`projects/${slug}.pt.md`).catch(() => null);
-        if (src == null) src = await fetchText(`projects/${slug}.md`);
+        if (lang === 'pt') src = await fetchText(`./projects/${slug}.pt.md`).catch(() => null);
+        if (src == null) src = await fetchText(`./projects/${slug}.md`);
         const { data, body } = frontMatter(src);
         // "./img.png" or "../img.png" → relative to the .md file; anything else → relative to the site root
         const resolve = u => {
