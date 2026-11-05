@@ -237,8 +237,11 @@ window.PROJECT_FILES = [
     if (!cache.has(key)) {
       cache.set(key, (async () => {
         let src = null;
+
+        const basePath = window.location.hostname.includes('github.io') ? '/portfolio-new' : '';
         if (lang === 'pt') src = await fetchText(`${basePath}/projects/${slug}.pt.md`).catch(() => null);
         if (src == null) src = await fetchText(`${basePath}/projects/${slug}.md`);
+
         const { data, body } = frontMatter(src);
         // "./img.png" or "../img.png" → relative to the .md file; anything else → relative to the site root
         const resolve = u => {
