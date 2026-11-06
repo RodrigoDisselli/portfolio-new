@@ -17,6 +17,7 @@
 
 window.PROJECT_FILES = [
   { slug: 'project-01' },
+  { slug: 'project-02' },
 ];
 
 (() => {
