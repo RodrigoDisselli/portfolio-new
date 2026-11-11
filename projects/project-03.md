@@ -32,6 +32,7 @@ Design tokens mapped onto the Ant Design theme, inherited by everything above.
 - Typography: system font stack and an eight-step type ramp
 - Layout and columns for a 1440px desktop viewport
 - Spacing, sizes and shape: one 2 / 4 / 8 / 16 scale, 12px corners
+- Accessibility: contrast checked against WCAG for low-vision users
 ### Components {ATOMS · MOLECULES}
 The building blocks, based on Ant Design and styled with the system tokens.
 - Buttons, links and icon buttons
@@ -63,6 +64,11 @@ A separate visual dialect for AI features and generated content.
 - AI buttons
 - AI panel
 - AI marks in regular UI
+### UI language {CONTENT}
+Rules for the words in the interface, so every screen speaks with the same voice.
+- Direct instructions, without "Please"
+- Question-mark icons with explanatory tooltips
+- Error messages in one sentence: the issue and the solution
 :::
 
 ## Overview {#overview}
@@ -174,6 +180,28 @@ Control heights follow the same scale: fields and large buttons are 40px, compac
 
 ![Spacing, sizes and shape](./projects-assets/project-03/project-03-sizes-spacing.png "The spacing scale, the corner radius tokens and the size rules for controls, viewport, navbar, page and form.")
 
+## Accessibility {#accessibility}
+
+Colors and shapes were designed for accessibility from the start, so the tools stay readable for people with low vision and for anyone working long hours in front of a screen. Every text and color pair was checked against the WCAG contrast guidelines, which ask for at least 4.5:1 for regular text.
+
+| Pair | Contrast | WCAG level |
+| --- | --- | --- |
+| Ink text on white | 17.3:1 | AAA |
+| Secondary grey text on white | 7.7:1 | AAA |
+| Accent text (links, text buttons) on white | 7.3:1 | AAA |
+| Dark ink on accent fills | 8.4:1 | AAA |
+| Danger red on white | 6.6:1 | AA |
+| Info blue on white | 5.2:1 | AA |
+
+The accent yellow is light: white text on it reaches only 1.9:1. That's why the accent is used only for fills with dark ink on top, and clickable text uses a deep shade of it instead.
+
+The rules behind it:
+
+- **Contrast before color.** Static text stays near-black, and emphasis comes from bold weight instead of a lighter color. Secondary copy is smaller and grey, but keeps a regular weight so the letters stay solid.
+- **Color is never the only signal.** Status colors use clearly different hues (blue for info, orange for warnings, red for danger) and always come with text or an icon. Selected thumbnails get a visible border, and AI content always carries the sparkle.
+- **Shapes that are easy to see and hit.** Fields and main buttons are 40px tall, body text is 16px, and the consistent 12px corners make controls easy to recognize. Focused fields get a clear focus border and ring for keyboard users.
+- **Clear edges around images.** The dotted stage keeps the boundary between image and interface visible even when they share the same color.
+
 ## Key components {#components}
 
 ### Buttons
@@ -184,6 +212,8 @@ Buttons come in three colors, each in three styles. **Accent** carries the flow:
 ### Forms
 
 The form set covers everything an analysis setup needs: text fields, searchable and soft selects, checkboxes, radios and switches, a file drop area, a date-time field and a coordinates field that accepts comma-separated values. Every field shares the same 40px height, label and help text styles.
+
+By default, forms prevent errors instead of reporting them. The submit button stays disabled until every required field is filled in, so users never click it only to get an error message back. A disabled button always comes with a tooltip that explains why, such as which required fields are still missing, so users always know what's left to do.
 
 ## Built for complex content {#complex}
 
@@ -238,6 +268,32 @@ This dialect does three jobs:
 - **Matches what users already know:** sparkles and vibrant gradients are widely used to mark AI in external AI tools, so users recognize them without explanation.
 
 ![AI guidelines and components](./projects-assets/project-03/project-03-ai-tool.png "The AI sub-system: guidelines and tokens, do and don't rules, AI buttons, the AI answer panel and AI marks in regular UI.")
+## UI language {#language}
+
+The design system doesn't stop at visuals. It also covers the language used in the interfaces: how messages are written, how features are explained and how problems are reported. Clear, consistent wording makes dense tools easier to learn, and it keeps screens built by different people sounding like one product.
+
+### Direct instructions, without "Please"
+
+At the client's request, the word "Please" isn't used in the interface. Instructions are short and direct, and politeness comes from clarity instead of extra words. In tools people use all day, repeated courtesy words only add reading time.
+
+| Instead of | Write |
+| --- | --- |
+| Please select a bucket to continue. | Select a bucket to continue. |
+| Please enter a name for the analysis. | Enter a name for the analysis. |
+
+### Explanations on demand
+
+Technical features need explanations, but long help text on every screen would bury the work. A question-mark icon sits next to the titles, labels and controls that need context, and opens a tooltip with a short explanation of what the feature does. New users find help exactly where they need it, and experienced users aren't slowed down by it. Longer topics link out with a "Learn more" link.
+
+### Error messages: the issue and the solution
+
+Every error message follows the same pattern: one sentence that says what went wrong and how to fix it. Users never get an error without a way forward, and they don't need to read a paragraph to find it. Forms avoid many of these messages altogether: submission stays disabled, with an explanatory tooltip, until every required field is filled in.
+
+| Instead of | Write |
+| --- | --- |
+| Upload failed. | The file is larger than 50 MB, so choose a smaller file and try again. |
+| Invalid coordinates. | Coordinates must be four numbers separated by commas, such as 10, 20, 200, 150. |
+
 ## Challenges and how I solved them {#challenges}
 
 :::principles

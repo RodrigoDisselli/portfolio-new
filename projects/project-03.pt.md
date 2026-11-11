@@ -32,6 +32,7 @@ Design tokens mapeados no tema do Ant Design, herdados por tudo o que vem acima.
 - Tipografia: pilha de fontes do sistema e uma escala tipográfica de oito níveis
 - Layout e colunas para uma viewport desktop de 1440px
 - Espaçamento, tamanhos e forma: uma escala 2 / 4 / 8 / 16, cantos de 12px
+- Acessibilidade: contraste verificado pela WCAG para usuários com baixa visão
 ### Componentes {ÁTOMOS · MOLÉCULAS}
 Os blocos básicos, baseados no Ant Design e estilizados com os tokens do sistema.
 - Botões, links e botões de ícone
@@ -63,6 +64,11 @@ Um dialeto visual separado para funcionalidades de IA e conteúdo gerado.
 - Botões de IA
 - Painel de IA
 - Marcas de IA na UI comum
+### Linguagem da UI {CONTEÚDO}
+Regras para as palavras da interface, para que todas as telas falem com a mesma voz.
+- Instruções diretas, sem "Por favor"
+- Ícones de interrogação com tooltips explicativos
+- Mensagens de erro em uma frase: o problema e a solução
 :::
 
 ## Visão geral {#overview}
@@ -174,6 +180,28 @@ As alturas dos controles seguem a mesma escala: campos e botões grandes têm 40
 
 ![Espaçamento, tamanhos e forma](./projects-assets/project-03/project-03-sizes-spacing.png "A escala de espaçamento, os tokens de raio dos cantos e as regras de tamanho para controles, viewport, navbar, página e formulário.")
 
+## Acessibilidade {#accessibility}
+
+Cores e formas foram desenhadas pensando em acessibilidade desde o início, para que as ferramentas continuem legíveis para pessoas com baixa visão e para quem passa longas horas em frente à tela. Todo par de texto e cor foi verificado segundo as diretrizes de contraste da WCAG, que pedem no mínimo 4,5:1 para texto comum.
+
+| Par | Contraste | Nível WCAG |
+| --- | --- | --- |
+| Texto em tinta sobre branco | 17,3:1 | AAA |
+| Texto cinza secundário sobre branco | 7,7:1 | AAA |
+| Texto de destaque (links, botões de texto) sobre branco | 7,3:1 | AAA |
+| Tinta escura sobre preenchimentos de destaque | 8,4:1 | AAA |
+| Vermelho de perigo sobre branco | 6,6:1 | AA |
+| Azul de informação sobre branco | 5,2:1 | AA |
+
+O amarelo de destaque é claro: texto branco sobre ele chega a apenas 1,9:1. Por isso o destaque é usado só em preenchimentos com tinta escura por cima, e o texto clicável usa um tom escuro dele.
+
+As regras por trás disso:
+
+- **Contraste antes da cor.** O texto estático fica quase preto, e a ênfase vem do negrito, não de uma cor mais clara. O texto secundário é menor e cinza, mas mantém o peso regular para que as letras continuem firmes.
+- **A cor nunca é o único sinal.** As cores de status usam matizes bem diferentes (azul para informação, laranja para alertas, vermelho para perigo) e sempre vêm com texto ou ícone. Miniaturas selecionadas ganham uma borda visível, e o conteúdo de IA sempre leva o sparkle.
+- **Formas fáceis de ver e de clicar.** Campos e botões principais têm 40px de altura, o texto corrido tem 16px, e os cantos consistentes de 12px tornam os controles fáceis de reconhecer. Campos em foco ganham uma borda e um anel de foco claros para quem usa o teclado.
+- **Bordas claras ao redor das imagens.** O palco pontilhado mantém visível o limite entre imagem e interface, mesmo quando os dois têm a mesma cor.
+
 ## Componentes principais {#components}
 
 ### Botões
@@ -184,6 +212,8 @@ Os botões vêm em três cores, cada uma em três estilos. **Destaque** conduz o
 ### Formulários
 
 O conjunto de formulários cobre tudo o que a configuração de uma análise precisa: campos de texto, selects pesquisáveis e suaves, checkboxes, rádios e switches, uma área para soltar arquivos, um campo de data e hora e um campo de coordenadas que aceita valores separados por vírgula. Todos os campos compartilham a mesma altura de 40px e os mesmos estilos de rótulo e texto de ajuda.
+
+Por padrão, os formulários evitam erros em vez de apontá-los. O botão de envio fica desabilitado até que todos os campos obrigatórios sejam preenchidos, então os usuários nunca clicam nele só para receber uma mensagem de erro de volta. Um botão desabilitado sempre vem com um tooltip que explica o motivo, como quais campos obrigatórios ainda faltam, para que os usuários sempre saibam o que falta fazer.
 
 ## Feito para conteúdo complexo {#complex}
 
@@ -238,6 +268,32 @@ Esse dialeto cumpre três funções:
 - **Corresponde ao que os usuários já conhecem:** brilhos e gradientes vibrantes são amplamente usados para identificar IA em ferramentas externas, então os usuários os reconhecem sem explicação.
 
 ![Diretrizes e componentes de IA](./projects-assets/project-03/project-03-ai-tool.png "O subsistema de IA: diretrizes e tokens, regras do que fazer e não fazer, botões de IA, o painel de resposta da IA e as marcas de IA na UI comum.")
+## Linguagem da UI {#language}
+
+O design system não para no visual. Ele também cobre a linguagem usada nas interfaces: como as mensagens são escritas, como as funcionalidades são explicadas e como os problemas são informados. Um texto claro e consistente torna ferramentas densas mais fáceis de aprender e faz com que telas construídas por pessoas diferentes soem como um só produto.
+
+### Instruções diretas, sem "Por favor"
+
+A pedido do cliente, a expressão "Por favor" não é usada na interface. As instruções são curtas e diretas, e a cordialidade vem da clareza, não de palavras extras. Em ferramentas usadas o dia todo, expressões de cortesia repetidas só aumentam o tempo de leitura.
+
+| Em vez de | Escreva |
+| --- | --- |
+| Por favor, selecione um bucket para continuar. | Selecione um bucket para continuar. |
+| Por favor, insira um nome para a análise. | Insira um nome para a análise. |
+
+### Explicações sob demanda
+
+Funcionalidades técnicas precisam de explicação, mas textos de ajuda longos em todas as telas soterrariam o trabalho. Um ícone de interrogação fica ao lado dos títulos, rótulos e controles que precisam de contexto e abre um tooltip com uma explicação curta do que a funcionalidade faz. Usuários novos encontram ajuda exatamente onde precisam, e usuários experientes não são atrasados por ela. Assuntos mais longos levam a um link "Saiba mais".
+
+### Mensagens de erro: o problema e a solução
+
+Toda mensagem de erro segue o mesmo padrão: uma frase que diz o que deu errado e como resolver. Os usuários nunca recebem um erro sem um caminho para seguir, e não precisam ler um parágrafo para encontrá-lo. Os formulários evitam muitas dessas mensagens: o envio fica desabilitado, com um tooltip explicativo, até que todos os campos obrigatórios sejam preenchidos.
+
+| Em vez de | Escreva |
+| --- | --- |
+| Falha no upload. | O arquivo tem mais de 50 MB, então escolha um arquivo menor e tente novamente. |
+| Coordenadas inválidas. | As coordenadas devem ser quatro números separados por vírgula, como 10, 20, 200, 150. |
+
 ## Desafios e como foram resolvidos {#challenges}
 
 :::principles
