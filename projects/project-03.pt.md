@@ -6,7 +6,7 @@ year: 2026
 coverStyle: v6
 cover: ./projects-assets/project-03/project-03-cover.png
 header: ./projects-assets/project-03/project-03-header.png
-headerAlt: O showcase do design system com a ferramenta de comparação de imagens, a configuração de região de interesse e os tokens da cor de destaque mel
+headerAlt: O showcase do design system com a ferramenta de comparação de imagens, a configuração de região de interesse e os tokens da cor de destaque
 summary: Um design system atômico para aplicações web desktop, feito para comportar formulários complexos, tabelas de dados e um conjunto completo de ferramentas de imagem para análise com ML de imagens de fábrica.
 meta:
   - Função: Product Designer
@@ -21,13 +21,63 @@ Equipes de qualidade passam o dia dentro de ferramentas densas: formulários lon
 Construído sobre o Ant Design, uma base comprovada e de nível corporativo para átomos e tabelas de dados pesadas, para que o esforço de design e desenvolvimento fosse para o que esses produtos têm de único: imagens, fluxos complexos e IA.
 :::
 
+## Visão rápida {#structure}
+
+O sistema segue o atomic design, dos tokens às páginas completas, com duas seções especializadas por cima. Abra uma camada para ver o que ela contém.
+
+:::accordion
+### Fundamentos {TOKENS}
+Design tokens mapeados no tema do Ant Design, herdados por tudo o que vem acima.
+- Cor: destaque amarelo, texto em tinta, superfícies, cores de status e tons
+- Tipografia: pilha de fontes do sistema e uma escala tipográfica de oito níveis
+- Layout e colunas para uma viewport desktop de 1440px
+- Espaçamento, tamanhos e forma: uma escala 2 / 4 / 8 / 16, cantos de 12px
+- Acessibilidade: contraste verificado pela WCAG para usuários com baixa visão
+### Componentes {ÁTOMOS · MOLÉCULAS}
+Os blocos básicos, baseados no Ant Design e estilizados com os tokens do sistema.
+- Botões, links e botões de ícone
+- Campos: texto, selects, checkboxes, rádios, switches, área de arquivos, data e hora, coordenadas
+- Badges, chips, tags e pills
+- Pessoas e avatares
+- Tooltips, toasts, progresso, banners e status de upload
+### Padrões {ORGANISMOS}
+Peças maiores que combinam componentes em partes funcionais de uma tela.
+- Tabelas em linhas, barras de filtro, painéis de filtro e facetas
+- Linhas de detalhes e de ação, histórico
+- Modais, diálogos e sheets
+- Fieldsets, linhas de opção e cards de opção
+### Templates {PÁGINAS}
+Esqueletos de página dos quais as novas telas partem.
+- Home
+- Página de lista e página de lista densa
+- Página de formulário e formulário em sheet
+### Ferramentas de imagem {ESPECIALIZADO}
+Os componentes de imagem por trás do principal produto de análise com ML.
+- Palco, barra de ferramentas e galeria
+- Detalhes da imagem
+- Região de interesse
+- Comparação de imagens
+- Medições
+### Subsistema de IA {SUBSISTEMA}
+Um dialeto visual separado para funcionalidades de IA e conteúdo gerado.
+- Diretrizes e tokens de IA
+- Botões de IA
+- Painel de IA
+- Marcas de IA na UI comum
+### Linguagem da UI {CONTEÚDO}
+Regras para as palavras da interface, para que todas as telas falem com a mesma voz.
+- Instruções diretas, sem "Por favor"
+- Ícones de interrogação com tooltips explicativos
+- Mensagens de erro em uma frase: o problema e a solução
+:::
+
 ## Visão geral {#overview}
 
 Este é um design system convencional, construído com **atomic design**. Ele parte dos fundamentos (cor, tipografia, layout e espaçamento), transforma-os em componentes pequenos como botões, campos e tags, combina-os em padrões maiores como barras de filtro, tabelas e diálogos, e termina em templates de página. Os templates podem ser aplicados a diferentes configurações e aplicações, então uma nova tela começa de um esqueleto funcional em vez de uma página em branco.
 
 Ele foi feito principalmente para **aplicações web em visualização desktop**. As ferramentas que ele atende são usadas em uma mesa, em telas grandes, durante longas sessões de trabalho.
 
-Além da biblioteca padrão, duas partes o diferenciam:
+O Ant Design foi o ponto de partida, não o sistema final. Muitos ajustes e adições foram feitos à sua estrutura original para atender às necessidades dos projetos dos clientes. Dois deles mostram isso melhor:
 
 - **Uma seção de ferramentas de imagem**, a espinha dorsal do principal produto que usa o sistema: uma ferramenta que executa análises de machine learning sobre imagens e amostras de fábrica.
 - **Um subsistema de IA**, uma linguagem visual própria que identifica funcionalidades com IA e conteúdo gerado por IA.
@@ -38,13 +88,17 @@ Tudo fica em um showcase ao vivo: cada token e componente é interativo, com o m
 
 Não comecei do zero. O sistema é construído sobre o **Ant Design**, um design system open source maduro, feito para aplicações corporativas e cheias de dados. Seus átomos (botões, campos, selects, checkboxes, menus) e suas tabelas (ordenação, filtros, paginação, seleção, colunas fixas) já são acessíveis, documentados e testados em muitos produtos reais, com uma biblioteca React que os desenvolvedores já conhecem.
 
+![Logo do Ant Design](./projects-assets/project-03/project-03-antdesign.png "Ant Design, a base open source para os átomos e as tabelas de dados.")
+
 Reconstruir essas peças custaria meses e não traria nenhum valor para os usuários. Usar uma base sólida me permitiu:
 
 - **Economizar esforço de desenvolvimento:** os engenheiros constroem com componentes que já conhecem, em vez de manter uma versão própria de cada campo e tabela.
 - **Partir de um comportamento comprovado:** suporte a teclado, estados, validação e casos extremos já vêm prontos, sem precisar ser redesenhados.
 - **Investir onde importa:** o tempo economizado foi para o que nenhuma biblioteca oferece: as ferramentas de imagem, os fluxos de criação complexos e o subsistema de IA.
 
-Construir sobre o Ant Design não significa pular o trabalho de design system. Defini os fundamentos como design tokens (destaque mel, escala tipográfica, a escala de espaçamento 2 / 4 / 8 / 16, cantos de 12px) e os mapeei no tema do Ant Design. Moléculas, padrões e templates foram desenhados para esses produtos. Documentação, regras de uso e o showcase ao vivo vieram por cima. O resultado parece e funciona como um sistema próprio, sobre uma base já comprovada.
+Construir sobre o Ant Design não significa pular o trabalho de design system. Defini os fundamentos como design tokens (cor de destaque, escala tipográfica, a escala de espaçamento 2 / 4 / 8 / 16, cantos de 12px) e os mapeei no tema do Ant Design. Moléculas, padrões e templates foram desenhados para esses produtos. Documentação, regras de uso e o showcase ao vivo vieram por cima. O resultado parece e funciona como um sistema próprio, sobre uma base já comprovada.
+
+As ferramentas de imagem e o subsistema de IA são os exemplos mais claros desse trabalho. O Ant Design não tem componentes para navegar, comparar, marcar ou medir imagens de fábrica, nem uma linguagem visual para funcionalidades de IA. Esses recursos, junto com muitos ajustes menores, como a tabela em linhas, os cards de opção e os sheets em tela cheia, foram desenhados e adicionados à estrutura original porque os projetos dos clientes precisavam deles. A base continuou padrão onde já funcionava e cresceu onde os produtos pediam mais.
 
 ## O problema {#problem}
 
@@ -75,19 +129,19 @@ Várias ferramentas e colaboradores precisam construir telas com a mesma aparên
 
 ### Cor
 
-Um único amarelo mel quente faz todo o trabalho interativo, e gradientes dele carregam a ênfase. Todo o resto fica discreto: tinta quase preta sobre branco, com cinzas quentes claros para a estrutura.
+Um único amarelo quente faz todo o trabalho interativo, e gradientes dele carregam a ênfase. Todo o resto fica discreto: tinta quase preta sobre branco, com cinzas quentes claros para a estrutura.
 
 | Papel | Token | Valor | Usado para |
 | --- | --- | --- | --- |
 | Destaque | `--ds-accent` | #edb13a | Preenchimentos: checks, seleção, regras ativas, badges |
 | Texto de destaque | `--ds-accent-text` | #7a4d00 | Texto clicável: links, botões de texto (7:1 sobre branco) |
-| Sobre destaque | `--ds-on-accent` | #2e1f00 | Tinta sobre preenchimentos mel, como botões preenchidos |
+| Sobre destaque | `--ds-on-accent` | #2e1f00 | Tinta sobre preenchimentos na cor de destaque, como botões preenchidos |
 | Tinta | `--ds-text-strong` | #1f1a10 | Títulos e texto estático |
 | Informação | `--ds-info` | #2563eb | Banners informativos. Mantido azul para nunca parecer uma ação |
 | Alerta | `--ds-warning` | #ea580c | Alertas. Mantido laranja para nunca parecer o destaque |
 | Perigo | `--ds-danger` | #b51f2e | Ações destrutivas e erros |
 
-Duas regras mantêm o mel legível. Texto mel aparece só onde é clicável, e em um tom escuro com alto contraste. Texto estático fica em tinta e, quando precisa se destacar, ganha negrito, não cor.
+Duas regras mantêm o destaque legível. Texto na cor de destaque aparece só onde é clicável, e em um tom escuro com alto contraste. Texto estático fica em tinta e, quando precisa se destacar, ganha negrito, não cor.
 
 ![Tokens de cor](./projects-assets/project-03/project-03-colors.png "Os tokens de cor no showcase ao vivo: destaque e interação, gradientes, texto, superfícies e bordas, status e tons.")
 ### Tipografia
@@ -126,6 +180,28 @@ As alturas dos controles seguem a mesma escala: campos e botões grandes têm 40
 
 ![Espaçamento, tamanhos e forma](./projects-assets/project-03/project-03-sizes-spacing.png "A escala de espaçamento, os tokens de raio dos cantos e as regras de tamanho para controles, viewport, navbar, página e formulário.")
 
+## Acessibilidade {#accessibility}
+
+Cores e formas foram desenhadas pensando em acessibilidade desde o início, para que as ferramentas continuem legíveis para pessoas com baixa visão e para quem passa longas horas em frente à tela. Todo par de texto e cor foi verificado segundo as diretrizes de contraste da WCAG, que pedem no mínimo 4,5:1 para texto comum.
+
+| Par | Contraste | Nível WCAG |
+| --- | --- | --- |
+| Texto em tinta sobre branco | 17,3:1 | AAA |
+| Texto cinza secundário sobre branco | 7,7:1 | AAA |
+| Texto de destaque (links, botões de texto) sobre branco | 7,3:1 | AAA |
+| Tinta escura sobre preenchimentos de destaque | 8,4:1 | AAA |
+| Vermelho de perigo sobre branco | 6,6:1 | AA |
+| Azul de informação sobre branco | 5,2:1 | AA |
+
+O amarelo de destaque é claro: texto branco sobre ele chega a apenas 1,9:1. Por isso o destaque é usado só em preenchimentos com tinta escura por cima, e o texto clicável usa um tom escuro dele.
+
+As regras por trás disso:
+
+- **Contraste antes da cor.** O texto estático fica quase preto, e a ênfase vem do negrito, não de uma cor mais clara. O texto secundário é menor e cinza, mas mantém o peso regular para que as letras continuem firmes.
+- **A cor nunca é o único sinal.** As cores de status usam matizes bem diferentes (azul para informação, laranja para alertas, vermelho para perigo) e sempre vêm com texto ou ícone. Miniaturas selecionadas ganham uma borda visível, e o conteúdo de IA sempre leva o sparkle.
+- **Formas fáceis de ver e de clicar.** Campos e botões principais têm 40px de altura, o texto corrido tem 16px, e os cantos consistentes de 12px tornam os controles fáceis de reconhecer. Campos em foco ganham uma borda e um anel de foco claros para quem usa o teclado.
+- **Bordas claras ao redor das imagens.** O palco pontilhado mantém visível o limite entre imagem e interface, mesmo quando os dois têm a mesma cor.
+
 ## Componentes principais {#components}
 
 ### Botões
@@ -137,6 +213,8 @@ Os botões vêm em três cores, cada uma em três estilos. **Destaque** conduz o
 
 O conjunto de formulários cobre tudo o que a configuração de uma análise precisa: campos de texto, selects pesquisáveis e suaves, checkboxes, rádios e switches, uma área para soltar arquivos, um campo de data e hora e um campo de coordenadas que aceita valores separados por vírgula. Todos os campos compartilham a mesma altura de 40px e os mesmos estilos de rótulo e texto de ajuda.
 
+Por padrão, os formulários evitam erros em vez de apontá-los. O botão de envio fica desabilitado até que todos os campos obrigatórios sejam preenchidos, então os usuários nunca clicam nele só para receber uma mensagem de erro de volta. Um botão desabilitado sempre vem com um tooltip que explica o motivo, como quais campos obrigatórios ainda faltam, para que os usuários sempre saibam o que falta fazer.
+
 ## Feito para conteúdo complexo {#complex}
 
 O sistema foi desenhado para comportar as partes mais pesadas desses produtos sem perder clareza:
@@ -147,10 +225,16 @@ O sistema foi desenhado para comportar as partes mais pesadas desses produtos se
 
 ## Ferramentas de imagem {#image-tools}
 
-Os componentes de imagem são usados com frequência em todo o sistema, por isso compartilham o mesmo palco, barra de ferramentas e galeria:
+Os componentes de imagem são usados com frequência em todo o sistema, por isso todos compartilham um mesmo layout. As pessoas sempre sabem onde olhar, seja qual for a ferramenta que abrirem:
 
-- **Palco, barra de ferramentas e galeria:** um canvas que centraliza e aplica zoom na imagem, uma barra de ferramentas com paginação e controle de zoom, e uma galeria vertical de miniaturas com rolagem própria.
-- **Detalhes da imagem:** a imagem grande à esquerda, com tudo o que se sabe sobre ela à direita em abas: metadados, bucket, tags, análises, comentários, medições e chaves paramétricas. O modal mantém uma altura fixa e rola por dentro.
+- **Navegação à esquerda:** uma coluna de miniaturas com rolagem vertical própria. Os usuários percorrem um conjunto de imagens sem sair da ferramenta, e a imagem selecionada fica destacada.
+- **A imagem no centro:** um palco que centraliza e aplica zoom na imagem, com a **barra de ferramentas abaixo do container da imagem**. A paginação, o controle de zoom e ações rápidas como download ficam ali, então nunca cobrem a imagem.
+- **Dados à direita:** um painel com os metadados e os dados relacionados da imagem, como número de série, tamanho, dimensões, dispositivo, local e resultado da revisão, junto com tags, análises, comentários e medições.
+
+Sobre esse layout, o sistema oferece um conjunto de ferramentas:
+
+- **Palco, barra de ferramentas e galeria:** o conjunto central que todas as outras ferramentas reutilizam: miniaturas, palco e barra de ferramentas funcionando juntos.
+- **Detalhes da imagem:** a imagem grande à esquerda, com tudo o que se sabe sobre ela no painel da direita, em abas: metadados, bucket, tags, análises, comentários, medições e chaves paramétricas. O modal mantém uma altura fixa e rola por dentro.
 - **Região de interesse:** os usuários desenham retângulos ou polígonos diretamente na imagem para indicar à análise onde olhar, nomeiam cada região na hora ou digitam coordenadas exatas.
 - **Comparação de imagens:** seis formas de olhar duas imagens: Lado a lado, Destaques, Fade, Slider, Diferença e Dados das imagens.
 - **Medições:** uma referência de escala converte pixels em unidades físicas, e então ferramentas de comprimento, área e ângulo medem diretamente na imagem.
@@ -184,11 +268,37 @@ Esse dialeto cumpre três funções:
 - **Corresponde ao que os usuários já conhecem:** brilhos e gradientes vibrantes são amplamente usados para identificar IA em ferramentas externas, então os usuários os reconhecem sem explicação.
 
 ![Diretrizes e componentes de IA](./projects-assets/project-03/project-03-ai-tool.png "O subsistema de IA: diretrizes e tokens, regras do que fazer e não fazer, botões de IA, o painel de resposta da IA e as marcas de IA na UI comum.")
+## Linguagem da UI {#language}
+
+O design system não para no visual. Ele também cobre a linguagem usada nas interfaces: como as mensagens são escritas, como as funcionalidades são explicadas e como os problemas são informados. Um texto claro e consistente torna ferramentas densas mais fáceis de aprender e faz com que telas construídas por pessoas diferentes soem como um só produto.
+
+### Instruções diretas, sem "Por favor"
+
+A pedido do cliente, a expressão "Por favor" não é usada na interface. As instruções são curtas e diretas, e a cordialidade vem da clareza, não de palavras extras. Em ferramentas usadas o dia todo, expressões de cortesia repetidas só aumentam o tempo de leitura.
+
+| Em vez de | Escreva |
+| --- | --- |
+| Por favor, selecione um bucket para continuar. | Selecione um bucket para continuar. |
+| Por favor, insira um nome para a análise. | Insira um nome para a análise. |
+
+### Explicações sob demanda
+
+Funcionalidades técnicas precisam de explicação, mas textos de ajuda longos em todas as telas soterrariam o trabalho. Um ícone de interrogação fica ao lado dos títulos, rótulos e controles que precisam de contexto e abre um tooltip com uma explicação curta do que a funcionalidade faz. Usuários novos encontram ajuda exatamente onde precisam, e usuários experientes não são atrasados por ela. Assuntos mais longos levam a um link "Saiba mais".
+
+### Mensagens de erro: o problema e a solução
+
+Toda mensagem de erro segue o mesmo padrão: uma frase que diz o que deu errado e como resolver. Os usuários nunca recebem um erro sem um caminho para seguir, e não precisam ler um parágrafo para encontrá-lo. Os formulários evitam muitas dessas mensagens: o envio fica desabilitado, com um tooltip explicativo, até que todos os campos obrigatórios sejam preenchidos.
+
+| Em vez de | Escreva |
+| --- | --- |
+| Falha no upload. | O arquivo tem mais de 50 MB, então escolha um arquivo menor e tente novamente. |
+| Coordenadas inválidas. | As coordenadas devem ser quatro números separados por vírgula, como 10, 20, 200, 150. |
+
 ## Desafios e como foram resolvidos {#challenges}
 
 :::principles
 ### Uma cor de destaque clara que continua legível
-O amarelo mel é quente e calmo, mas claro demais para texto sobre branco ou para texto branco por cima. Dividi a cor em papéis: mel para preenchimentos com tinta escura por cima, um mel escuro para texto clicável e tinta para tudo o que é estático.
+O amarelo de destaque é quente e calmo, mas claro demais para texto sobre branco ou para texto branco por cima. Dividi a cor em papéis: o destaque para preenchimentos com tinta escura por cima, um tom escuro dele para texto clicável e tinta para tudo o que é estático.
 ### Uma escala para todos os tamanhos
 Valores como 6, 10, 12 e 20px tinham surgido de várias fontes. Movi todo valor de espaçamento e altura de controle para uma única escala 2 / 4 / 8 / 16… e fiz os botões acompanharem a altura dos campos ao lado.
 ### Imagens que se leem com clareza contra a UI
