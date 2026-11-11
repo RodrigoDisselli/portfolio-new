@@ -6,7 +6,7 @@ year: 2026
 coverStyle: v6
 cover: ./projects-assets/project-03/project-03-cover.png
 header: ./projects-assets/project-03/project-03-header.png
-headerAlt: The design system showcase with the image comparison tool, the region-of-interest setup and the honey accent color tokens
+headerAlt: The design system showcase with the image comparison tool, the region-of-interest setup and the accent color tokens
 summary: An atomic design system for desktop web applications, built to hold complex forms, data tables and a full set of image tools for ML analysis of factory images.
 meta:
   - Role: Product Designer
@@ -21,13 +21,57 @@ Quality teams spend their day inside dense tools: long forms to set up an analys
 Built on Ant Design, a proven, enterprise-grade foundation for atoms and heavy data tables, so the design and development effort went where these products are unique: images, complex flows and AI.
 :::
 
+## At a glance {#structure}
+
+The system follows atomic design, from tokens to full pages, with two specialized sections on top. Open a layer to see what it holds.
+
+:::accordion
+### Foundations {TOKENS}
+Design tokens mapped onto the Ant Design theme, inherited by everything above.
+- Color: yellow accent, ink text, surfaces, status colors and tints
+- Typography: system font stack and an eight-step type ramp
+- Layout and columns for a 1440px desktop viewport
+- Spacing, sizes and shape: one 2 / 4 / 8 / 16 scale, 12px corners
+### Components {ATOMS · MOLECULES}
+The building blocks, based on Ant Design and styled with the system tokens.
+- Buttons, links and icon buttons
+- Fields: text, selects, checkboxes, radios, switches, file drop, date-time, coordinates
+- Badges, chips, tags and pills
+- People and avatars
+- Tooltips, toasts, progress, banners and upload status
+### Patterns {ORGANISMS}
+Larger pieces that combine components into working parts of a screen.
+- Row tables, filter bars, filter panels and facets
+- Details and action rows, history
+- Modals, dialogs and sheets
+- Fieldsets, option rows and option cards
+### Templates {PAGES}
+Page skeletons that new screens start from.
+- Home
+- List page and dense list page
+- Form page and sheet form
+### Image tools {SPECIALIZED}
+The image components behind the main ML analysis product.
+- Stage, toolbar and gallery
+- Image details
+- Region of interest
+- Image comparison
+- Measurements
+### AI sub-system {SUB-SYSTEM}
+A separate visual dialect for AI features and generated content.
+- AI guidelines and tokens
+- AI buttons
+- AI panel
+- AI marks in regular UI
+:::
+
 ## Overview {#overview}
 
 This is a regular design system, built with **atomic design**. It starts from foundations (color, typography, layout and spacing), builds them into small components such as buttons, fields and tags, combines those into larger patterns such as filter bars, tables and dialogs, and ends in page templates. The templates can be applied to different setups and applications, so a new screen starts from a working skeleton instead of a blank page.
 
 It was made mainly for **web applications in desktop view**. The tools it serves are used at a desk, on large screens, for long working sessions.
 
-Beyond the standard library, two parts set it apart:
+Ant Design was the starting point, not the finished system. Many adjustments and additions were made to its original structure to fit the needs of the client projects. Two of them show this best:
 
 - **An image tools section**, the backbone of the main product using the system: a tool that runs machine-learning analyses over factory images and samples.
 - **An AI sub-system**, a distinct visual language that marks AI-powered features and AI-generated content.
@@ -38,13 +82,17 @@ Everything lives in a live showcase: every token and component is interactive, w
 
 I didn't start from a blank canvas. The system is built on **Ant Design**, a mature open-source design system made for enterprise, data-heavy applications. Its atoms (buttons, inputs, selects, checkboxes, menus) and its tables (sorting, filtering, pagination, selection, fixed columns) are already accessible, documented and tested in many real products, with a React library developers already know.
 
+![Ant Design logo](./projects-assets/project-03/project-03-antdesign.png "Ant Design, the open-source base for the atoms and data tables.")
+
 Rebuilding those pieces would have cost months and added no value for users. Using a solid base let me:
 
 - **Save development effort:** engineers build with components they already know, instead of maintaining a custom version of every input and table.
 - **Start from proven behavior:** keyboard support, states, validation and edge cases come built in, so they don't have to be redesigned.
 - **Invest where it matters:** the time saved went into what no library offers: the image tools, the complex creation flows and the AI sub-system.
 
-Building on Ant Design doesn't mean skipping design system work. I defined the foundations as design tokens (honey accent, type ramp, the 2 / 4 / 8 / 16 spacing scale, 12px corners) and mapped them onto Ant Design's theme. Molecules, patterns and templates were designed for these products. Documentation, usage rules and the live showcase came on top. The result looks and works like its own system, on a base that's already proven.
+Building on Ant Design doesn't mean skipping design system work. I defined the foundations as design tokens (accent color, type ramp, the 2 / 4 / 8 / 16 spacing scale, 12px corners) and mapped them onto Ant Design's theme. Molecules, patterns and templates were designed for these products. Documentation, usage rules and the live showcase came on top. The result looks and works like its own system, on a base that's already proven.
+
+The image tools and the AI sub-system are the clearest examples of that work. Ant Design has no components for browsing, comparing, marking or measuring factory images, and no visual language for AI features. These, along with many smaller adjustments such as the row table, the option cards and the full-screen sheets, were designed and added to the original structure because the client projects needed them. The base stayed standard where it already worked, and grew where the products asked for more.
 
 ## The problem {#problem}
 
@@ -75,19 +123,19 @@ Several tools and contributors need to build screens that look and behave the sa
 
 ### Color
 
-One warm honey yellow does all the interactive work, and gradients of it carry emphasis. Everything else stays quiet: near-black ink on white, with light warm greys for structure.
+One warm yellow does all the interactive work, and gradients of it carry emphasis. Everything else stays quiet: near-black ink on white, with light warm greys for structure.
 
 | Role | Token | Value | Used for |
 | --- | --- | --- | --- |
 | Accent | `--ds-accent` | #edb13a | Fills: checks, selection, active rules, badges |
 | Accent text | `--ds-accent-text` | #7a4d00 | Text you can click: links, text buttons (7:1 on white) |
-| On accent | `--ds-on-accent` | #2e1f00 | Ink on honey fills such as filled buttons |
+| On accent | `--ds-on-accent` | #2e1f00 | Ink on accent fills such as filled buttons |
 | Ink | `--ds-text-strong` | #1f1a10 | Titles and static text |
 | Info | `--ds-info` | #2563eb | Info banners. Kept blue so it never reads as an action |
 | Warning | `--ds-warning` | #ea580c | Warnings. Kept orange so they never read as the accent |
 | Danger | `--ds-danger` | #b51f2e | Destructive actions and errors |
 
-Two rules keep honey readable. Honey text appears only where it can be clicked, and in a deep shade with high contrast. Static text stays ink, and when it needs to stand out it gets bold, not color.
+Two rules keep the accent readable. Accent text appears only where it can be clicked, and in a deep shade with high contrast. Static text stays ink, and when it needs to stand out it gets bold, not color.
 
 ![Color tokens](./projects-assets/project-03/project-03-colors.png "The color tokens in the live showcase: accent and interaction, gradients, text, surfaces and borders, status and tints.")
 ### Typography
@@ -147,10 +195,16 @@ The system was designed to hold the heaviest parts of these products without los
 
 ## Image tools {#image-tools}
 
-Image components are used frequently throughout the system, so they share the same stage, toolbar and gallery:
+Image components are used frequently throughout the system, so they all share one layout. People always know where to look, whichever tool they open:
 
-- **Stage, toolbar and gallery:** a canvas that centers and zooms the image, a toolbar with a pager and zoom slider, and a vertical thumbnail gallery that scrolls on its own.
-- **Image details:** the image large on the left, with everything known about it on the right as tabs: metadata, bucket, tags, analyses, comments, measurements and parametric keys. The modal keeps a fixed height and scrolls inside.
+- **Navigation on the left:** a column of thumbnails with its own vertical scroll. Users move through a set of images without leaving the tool, and the selected image is highlighted.
+- **The image in the center:** a stage that centers and zooms the image, with the **toolbar below the image container**. The pager, zoom slider and quick actions such as download sit there, so they never cover the image.
+- **Data on the right:** a panel with the image's metadata and related data, such as serial number, size, dimensions, device, location and review result, along with tags, analyses, comments and measurements.
+
+On top of that layout, the system offers a set of tools:
+
+- **Stage, toolbar and gallery:** the core set every other tool reuses: thumbnails, stage and toolbar working together.
+- **Image details:** the image large on the left, with everything known about it in the right panel as tabs: metadata, bucket, tags, analyses, comments, measurements and parametric keys. The modal keeps a fixed height and scrolls inside.
 - **Region of interest:** users draw rectangles or polygons directly on the image to tell an analysis where to look, name each region on the spot, or type exact coordinates.
 - **Image comparison:** six ways to look at two images: Side by Side, Highlights, Fade, Slider, Difference and Images Data.
 - **Measurements:** a scale reference turns pixels into physical units, then length, area and angle tools measure directly on the image.
@@ -188,7 +242,7 @@ This dialect does three jobs:
 
 :::principles
 ### A light accent color that stays readable
-Honey yellow is warm and calm, but too light for text on white or for white text on top. I split it into roles: honey for fills with dark ink on top, a deep honey for clickable text, and ink for everything static.
+The yellow accent is warm and calm, but too light for text on white or for white text on top. I split it into roles: the accent for fills with dark ink on top, a deep shade of it for clickable text, and ink for everything static.
 ### One scale for every size
 Values like 6, 10, 12 and 20px crept in from many sources. I moved every spacing value and control height onto a single 2 / 4 / 8 / 16… scale, and made buttons match the height of the fields beside them.
 ### Images that read clearly against the UI
